@@ -32,26 +32,26 @@ public class LoginWindow extends Frame implements WindowListener, ActionListener
 	InetSocketAddress sockAddr;
 	InetAddress inetAddr;
 	
-	//ï¿½âº» ï¿½ï¿½ï¿½ï¿½ ï¿½Ç³ï¿½
+	// ±âº» ¹ÙÅÁ ÆÇ³Ú
 	JPanel pan = new JPanel();
 	
-	//ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½
+	// ÀÌ¹ÌÁö ·¹ÀÌºí
 	JLabel mainimage;
 	BufferedImage inputimage;
 	
-	// ID/PW ï¿½Ô·ï¿½ 
+	// ID/PW ÀÔ·Â 
 	TextField tfid = new TextField();
 	TextField tfpw = new TextField();
 	
-	//ï¿½ï¿½Æ°
+	// ¹öÆ°
 	Button b_login = new Button("Login");
-	Button b_join = new Button("È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
-	Button b_search = new Button("ï¿½ï¿½ï¿½Ìµï¿½ / ï¿½ï¿½Ð¹ï¿½È£ Ã£ï¿½ï¿½");
+	Button b_join = new Button("È¸¿ø °¡ÀÔ");
+	Button b_search = new Button("¾ÆÀÌµð / ºñ¹Ð¹øÈ£ Ã£±â");
 	
 	SingletonClass scls;
 	
 	public LoginWindow() throws IOException{
-		super("ï¿½Î±ï¿½ï¿½ï¿½");
+		super("·Î±×ÀÎ");
 		
 		conn();
 			
@@ -60,7 +60,7 @@ public class LoginWindow extends Frame implements WindowListener, ActionListener
 		GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.BOTH;
 		
-//			inputimage = ImageIO.read(new File("images/Banner_Login.gif"));
+//		inputimage = ImageIO.read(new File("images/Banner_Login.gif"));
 		mainimage = new JLabel(new ImageIcon("images/Banner_Login.gif"),JLabel.CENTER);
 		mainimage.setBackground(new Color(80,60,61));
 		c.insets = new Insets(0, 0, 0, 10);
@@ -79,14 +79,14 @@ public class LoginWindow extends Frame implements WindowListener, ActionListener
 			pan.add(p1, c);
 		}
 		
-		//TextField("ï¿½ï¿½ï¿½Ìµï¿½");
+		// TextField("¾ÆÀÌµð");
 		c.insets = new Insets(10, 10, 0, 10);
 		c.gridx = 0;
 		c.gridy = 2;
 		c.gridwidth = 3;
 		pan.add(tfid, c);
 		
-		//TextField("ï¿½ï¿½Ð¹ï¿½È£");
+		// TextField("ºñ¹Ð¹øÈ£");
 		c.insets = new Insets(10, 10, 0, 10);
 		c.gridx = 0;
 		c.gridy = 3;
@@ -94,7 +94,7 @@ public class LoginWindow extends Frame implements WindowListener, ActionListener
 		tfpw.setEchoChar('*');
 		pan.add(tfpw, c);
 		
-		//Button("Login");
+		// Button("Login");
 		b_login.setBackground(new Color(255, 200, 65));
 		c.gridx = 3;
 		c.gridy = 2;
@@ -102,7 +102,7 @@ public class LoginWindow extends Frame implements WindowListener, ActionListener
 		c.gridheight = 2;
 		pan.add(b_login, c);
 		
-		//Button("È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+		// Button("È¸¿ø°¡ÀÔ");
 		b_join.setBackground(new Color(255, 200, 65));
 		c.insets = new Insets(10, 10, 0, 0);
 		c.gridx = 0;
@@ -111,7 +111,7 @@ public class LoginWindow extends Frame implements WindowListener, ActionListener
 		c.gridheight = 1;
 		pan.add(b_join, c);
 		
-		//Button("ï¿½ï¿½ï¿½Ìµï¿½/ï¿½ï¿½Ð¹ï¿½È£ Ã£ï¿½ï¿½");
+		// Button("¾ÆÀÌµð/ºñ¹Ð¹øÈ£ Ã£±â");
 		b_search.setBackground(new Color(255, 200, 65));
 		c.insets = new Insets(10, 10, 0, 10);
 		c.gridx = 2;
@@ -139,10 +139,10 @@ public class LoginWindow extends Frame implements WindowListener, ActionListener
 		SingletonClass scls = SingletonClass.getInstance();
 		if(obj==b_login){
 			if(tfid.getText().equals("")){
-				scls.displayMessage("ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½");
+				scls.displayMessage("¾ÆÀÌµð¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä");
 				return;
 			}else if(tfpw.getText().equals("")){
-				scls.displayMessage("ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½");
+				scls.displayMessage("ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä");
 				return;
 			}
 			
@@ -234,7 +234,7 @@ public class LoginWindow extends Frame implements WindowListener, ActionListener
 	public void conn() throws IOException{
 		SingletonClass scls = SingletonClass.getInstance();
 		timeout = 5000;		
-		sockAddr = new InetSocketAddress("localhost", 9000);
+		sockAddr = new InetSocketAddress("localhost", 9001);
 		scls.socket.connect(sockAddr, timeout);
 				
 		//new ReadThread(lblQuestion, btnClear, taClient, dc).start();

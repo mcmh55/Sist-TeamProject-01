@@ -71,19 +71,19 @@ public class Chatting extends JFrame implements ActionListener, KeyListener, Mou
 	
 	public Chatting() {
 		
-		// Ã¤ï¿½ï¿½ È¯ï¿½æ¼³ï¿½ï¿½
+		// Ã¤ÆÃ È¯°æ¼³Á¤
 		context = new StyleContext();
 		document = new DefaultStyledDocument(context);
-		style = context.getStyle(StyleContext.DEFAULT_STYLE);		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ ï¿½âº»
+		style = context.getStyle(StyleContext.DEFAULT_STYLE);		// ¹®¼­ ½ºÅ¸ÀÏ ¼ÂÆÃ  ¡Ø ±âº»
 		
-		// ï¿½ï¿½ï¿½Ì¾Æ¿ï¿½
+		// ·¹ÀÌ¾Æ¿ô
 		ct = getContentPane();
 		ct.setLayout(new GridBagLayout());
 		
 		GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.BOTH;
 		
-		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		// Á¢¼ÓÇÑ À¯Àú¼ö
 		lbconnectuser = new JLabel();
 		lbconnectuser.setForeground(new Color(255, 255, 255));
 		c.gridx = 0;
@@ -93,42 +93,42 @@ public class Chatting extends JFrame implements ActionListener, KeyListener, Mou
 		ct.add(lbconnectuser, c);
 		
 
-		///// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		///// Ã¤ÆÃ Ãâ·Â ¿µ¿ª
 		pnText = new JTextPane(document);
-		pnText.setEditable(false);						// ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
-		pnText.setBackground(new Color(85, 65, 65));	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		pnText.setEditable(false);						// ¼öÁ¤ ºÒ°¡
+		pnText.setBackground(new Color(85, 65, 65));	// ¹è°æ »ö»ó
 		pnScroll = new JScrollPane(pnText, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		pnScroll.setBorder(new LineBorder(new Color(40, 40, 40)));		// ï¿½×µÎ¸ï¿½ ï¿½ï¿½ï¿½ï¿½
+		pnScroll.setBorder(new LineBorder(new Color(40, 40, 40)));		// Å×µÎ¸® »ö»ó
 		
-		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½Ñ¹ï¿½ UI ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		// ¼öÁ÷ ½ºÅ©·Ñ¹Ù UI µðÀÚÀÎ
 		pnScroll.getVerticalScrollBar().setUI(new BasicScrollBarUI()
 	    {   
-			// ï¿½ï¿½Å©ï¿½Ñ¹ï¿½ ï¿½ï¿½(bar) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			// ½ºÅ©·Ñ¹Ù ¹Ù(bar) µðÀÚÀÎ
 			@Override 
 	        protected void configureScrollBarColors(){
 	            this.thumbColor = new Color(120, 100, 100);
 	        }
 
-			// ï¿½ï¿½Å©ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			// ½ºÅ©·Ñ¹Ù ¹è°æ µðÀÚÀÎ
 			@Override
 			protected void paintTrack(Graphics g, JComponent c, Rectangle trackBounds) {
 				g.setColor(new Color(85, 65, 65));
 				super.paintTrack(g, c, trackBounds);
 			}
 
-			// ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½Æ°  ï¿½ï¿½ ï¿½ï¿½
+			// À§·Î ÀÌµ¿½ÃÅ°´Â ¹öÆ°  ¡Ø ¡ã
 			@Override
 	        protected JButton createDecreaseButton(int orientation) {
 	            return createZeroButton();
 	        }
 			
-			// ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½Æ°  ï¿½ï¿½ ï¿½ï¿½
+			// ¾Æ·¡·Î ÀÌµ¿½ÃÅ°´Â ¹öÆ°  ¡Ø ¡å
 			@Override    
 	        protected JButton createIncreaseButton(int orientation) {
 	            return createZeroButton();
 	        }
 
-	        // ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½î¸¦ ï¿½ï¿½ï¿½ï¿½(0), ï¿½ï¿½ï¿½ï¿½(0)ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	        // ¹öÆ° ¼û±è  ¡Ø »çÀÌÁî¸¦ °¡·Î(0), ¼¼·Î(0)À¸·Î ¸¸µê
 			private JButton createZeroButton() {
 	            JButton jbutton = new JButton();
 	            jbutton.setPreferredSize(new Dimension(0, 0));
@@ -145,12 +145,12 @@ public class Chatting extends JFrame implements ActionListener, KeyListener, Mou
 		ct.add(pnScroll, c);
 		
 		
-		///// ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½
-		// ï¿½Ô·ï¿½Ä­
+		///// ¹®ÀÚ ÀÔ·Â ¿µ¿ª
+		// ÀÔ·ÂÄ­
 		taInputMsg = new JTextArea();
-		taInputMsg.setLineWrap(true);		// ï¿½Úµï¿½ ï¿½Ù¹Ù²ï¿½
+		taInputMsg.setLineWrap(true);		// ÀÚµ¿ ÁÙ¹Ù²Þ
 		pnScroll = new JScrollPane(taInputMsg, JScrollPane.VERTICAL_SCROLLBAR_NEVER, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		pnScroll.setBorder(new LineBorder(Color.DARK_GRAY));	// ï¿½×µÎ¸ï¿½ ï¿½ï¿½ï¿½ï¿½
+		pnScroll.setBorder(new LineBorder(Color.DARK_GRAY));	// Å×µÎ¸® ¼³Á¤
 		
 		c.gridx = 0;
 		c.gridy = 2;
@@ -160,7 +160,7 @@ public class Chatting extends JFrame implements ActionListener, KeyListener, Mou
 		c.insets = new Insets(5, 5, 5, 5);
 		ct.add(pnScroll, c);
 		
-		// Ã¹ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½Ñ±Û·ï¿½ ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ Componentï¿½ï¿½ ï¿½ï¿½
+		// Ã¹ ÀÔ·Â ¹®ÀÚ¸¦ ÇÑ±Û·Î ¼³Á¤  ¡Ø Component°¡ »ý
 		inctLanguage = taInputMsg.getInputContext();
 		if(inctLanguage != null) {
             Character.Subset[] subset ={Character.UnicodeBlock.HANGUL_SYLLABLES};
@@ -168,14 +168,14 @@ public class Chatting extends JFrame implements ActionListener, KeyListener, Mou
 		}
 		
 		
-		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°
-		btnMsgSend = new JButton("ï¿½ï¿½ï¿½ï¿½");
+		// Àü¼Û ¹öÆ°
+		btnMsgSend = new JButton("Àü¼Û");
 		btnMsgSend.setFont(new Font(null, Font.PLAIN, 12));
 		btnMsgSend.setBackground(new Color(255, 200, 65));;
 		btnMsgSend.setFocusPainted(false);
 		btnMsgSend.setBorderPainted(false);
-		btnMsgSend.setPreferredSize(new Dimension(60, 35));		// ï¿½ï¿½Æ° Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-//		btnMsgSend.setBorder(BorderFactory.createLineBorder(Color.BLUE)); 	// ï¿½×µÎ¸ï¿½ ï¿½ï¿½
+		btnMsgSend.setPreferredSize(new Dimension(60, 35));		// ¹öÆ° Å©±â ¼³Á¤
+//		btnMsgSend.setBorder(BorderFactory.createLineBorder(Color.BLUE)); 	// Å×µÎ¸® »ö
 		c.gridx = 1;
 		c.gridy = 2;
 		c.weightx = 0;
@@ -183,30 +183,30 @@ public class Chatting extends JFrame implements ActionListener, KeyListener, Mou
 		ct.add(btnMsgSend, c);
 		
 		
-		///// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		///// Ã¤ÆÃ µµ±¸ ¿µ¿ª
 		pnChatTool = new JPanel();
 		pnChatTool.setOpaque(false);
 		pnChatTool.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 0));
 		
-		// ï¿½Ì¸ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½Æ°
+		// ÀÌ¸ðÆ¼ÄÜ ¹öÆ°
 		btnEmoticon = new JButton(new ImageIcon("images/icon_btn_emoticon.png"));
 		btnEmoticon.setRolloverIcon(new ImageIcon("images/icon_btn_emoticon_over.png"));
-		btnEmoticon.setToolTipText("ï¿½Ì¸ï¿½Æ¼ï¿½ï¿½");					// ï¿½ï¿½ ï¿½ï¿½
-		btnEmoticon.setBorderPainted(false);					// ï¿½ç°¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-		btnEmoticon.setContentAreaFilled(false);				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
-		btnEmoticon.setPreferredSize(new Dimension(20, 20));	// ï¿½ï¿½Æ° Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		btnEmoticon.setToolTipText("ÀÌ¸ðÆ¼ÄÜ");					// Åø ÆÁ
+		btnEmoticon.setBorderPainted(false);					// »ç°¢Çü ¼û±è
+		btnEmoticon.setContentAreaFilled(false);				// Åõ¸í ÇÏÀÌ¶óÀÌÆ® ¼û±è
+		btnEmoticon.setPreferredSize(new Dimension(20, 20));	// ¹öÆ° Å©±â ¼³Á¤
 		pnChatTool.add(btnEmoticon);
 		
-		// Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°
+		// Ã¤ÆÃÃ¢ Áö¿ì±â ¹öÆ°
 		btnChatClear = new JButton(new ImageIcon("images/icon_btn_chatclear.png"));
 		btnChatClear.setRolloverIcon(new ImageIcon("images/icon_btn_chatclear_over.png"));
-		btnChatClear.setToolTipText("Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½");				// ï¿½ï¿½ ï¿½ï¿½
-		btnChatClear.setBorderPainted(false);					// ï¿½ç°¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-		btnChatClear.setContentAreaFilled(false);				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
-		btnChatClear.setPreferredSize(new Dimension(20, 20));	// ï¿½ï¿½Æ° Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		btnChatClear.setToolTipText("Ã¤ÆÃÃ¢ Áö¿ì±â");				// Åø ÆÁ
+		btnChatClear.setBorderPainted(false);					// »ç°¢Çü ¼û±è
+		btnChatClear.setContentAreaFilled(false);				// Åõ¸í ÇÏÀÌ¶óÀÌÆ® ¼û±è
+		btnChatClear.setPreferredSize(new Dimension(20, 20));	// ¹öÆ° Å©±â ¼³Á¤
 		pnChatTool.add(btnChatClear);
 		
-		// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
+		// Ã¤ÆÃ µµ±¸ ¿µ¿ª À§Ä¡
 		c.gridx = 0;
 		c.gridy = 3;
 		
@@ -215,39 +215,39 @@ public class Chatting extends JFrame implements ActionListener, KeyListener, Mou
 		ct.add(pnChatTool, c);
 		
 		
-		///// È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-		// ï¿½×¼ï¿½, Å°ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		///// È¯°æ ¼³Á¤
+		// ¾×¼Ç, Å°º¸µå, ¸¶¿ì½º ¹ÝÀÀ °¨Áö
 		btnEmoticon.addActionListener(this);
 		btnChatClear.addActionListener(this);
 		btnMsgSend.addActionListener(this);
 		btnMsgSend.addMouseListener(this);
 		taInputMsg.addKeyListener(this);
 		
-		// Ã¤ï¿½ï¿½ Ã¢ ï¿½ï¿½ï¿½ï¿½
+		// Ã¤ÆÃ Ã¢ ¼ÂÆÃ
 		setBounds(1005, 100, 320, 710);
-//		setUndecorated(true);			// ï¿½Ìµï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½, Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½Ý±ï¿½ ï¿½Ò°ï¿½
+//		setUndecorated(true);			// ÀÌµ¿, ¼û±â±â, Å©±â º¯°æ, ´Ý±â ºÒ°¡
 		getContentPane().setBackground(new Color(80, 60, 60));
 		setResizable(false);
 		setVisible(false);
 		
-		taInputMsg.requestFocus();		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ Ä­ï¿½ï¿½ Ä¿ï¿½ï¿½ ï¿½ï¿½Ä¡
+		taInputMsg.requestFocus();		// ¹®ÀÚ ÀÔ·Â Ä­¿¡ Ä¿¼­ À§Ä¡
 	}
 	
 	
-	//////////Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼Òµï¿½ //////////
-	// ï¿½âº»ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
+	////////// Ä¿½ºÅÒ ¸Þ¼Òµå //////////
+	// ±âº»¼ÂÆÃ ÃÊ±âÈ­
 	public void settingInit() {
-		taInputMsg.requestFocus();							// Ä¿ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½Ô·ï¿½ Ä­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-		pnText.setCaretPosition(document.getLength());		// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
+		taInputMsg.requestFocus();							// Ä¿¼­ À§Ä¡¸¦ Ã¤ÆÃ ÀÔ·Â Ä­À¸·Î ÁöÁ¤
+		pnText.setCaretPosition(document.getLength());		// Ã¤ÆÃ ³»¿ªÀÇ ½ºÅ©·ÑÀ» °¡Àå ¾Æ·¡·Î ÀÌµ¿
 	}
 	
 	
-	// ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	// ÀÚ½ÅÀÇ ¹®ÀÚ Ãâ·Â
 	private void printMsg() {		
 		scls = SingletonClass.getInstance();		
-		String msg = taInputMsg.getText();		// ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		String msg = taInputMsg.getText();		// ÀÔ·ÂÇÑ ³»¿ë ÀúÀå
 		
-		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ È®ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½î¾²ï¿½ï¿½)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
+		// °ø¹é »óÅÂ¸¦ È®ÀÎÇÏ±â À§ÇØ °ø¹é(¶ç¾î¾²±â)ÀÇ °³¼ö Ã¼Å©
 		int spaceCount = 0;
 		for (int i = 0; i < msg.length(); i++) {
 			if (msg.charAt(i) == ' ') {
@@ -255,40 +255,40 @@ public class Chatting extends JFrame implements ActionListener, KeyListener, Mou
 			}
 		}
 		
-		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ => ï¿½Ô·Âµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ + ï¿½Ô·Âµï¿½ ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½
+		// °ø¹éÀº Àü¼Û ºÒ°¡ => ÀÔ·ÂµÈ ¹®ÀÚ ¾øÀ½ + ÀÔ·ÂµÈ ¹®ÀÚ°¡ ¸ðµÎ °ø¹éÀ¸·Î µÇ¾îÀÖÀ½
 		if (!msg.equals("") && spaceCount != msg.length()) {
 			try {
-				// ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
-				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¶ï¿½ï¿½ï¿½
+				// ÀÛ¼ºÀÚ Ãâ·Â
+				// ¼ºº°¿¡ µû¶ó Ä³¸¯ÅÍ ¾ó±¼ÀÌ ´Þ¶óÁü
 				Icon iface = null;
-				if (scls.mdto.getSex().equals("ï¿½ï¿½ï¿½ï¿½")) {
+				if (scls.mdto.getSex().equals("³²ÀÚ")) {
 					iface = new ImageIcon("images/face_man.png");
 				}
-				else if(scls.mdto.getSex().equals("ï¿½ï¿½ï¿½ï¿½")) {
+				else if(scls.mdto.getSex().equals("¿©ÀÚ")) {
 					iface = new ImageIcon("images/face_woman.png");
 				}
 				
 				lbUserName = new JLabel(scls.mdto.getNickname() + "(" + scls.mdto.getId() + "):", iface, JLabel.LEFT);
-				lbUserName.setFont(new Font(null, Font.BOLD, 11));		// Font(ï¿½Û²ï¿½(null = ï¿½âº»), È¿ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½)
-				lbUserName.setForeground(new Color(200, 200, 200));		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(R, G, B)
-				lbUserName.setPreferredSize(new Dimension(0, 30));		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½Ù°ï¿½ï¿½ï¿½)
+				lbUserName.setFont(new Font(null, Font.BOLD, 11));		// Font(±Û²Ã(null = ±âº»), È¿°ú, ±ÛÀÚ Å©±â)
+				lbUserName.setForeground(new Color(200, 200, 200));		// ±ÛÀÚ »ö»ó(R, G, B)
+				lbUserName.setPreferredSize(new Dimension(0, 30));		// ¼¼·Î °£°Ý(ÁÙ°£°Ý)
 				
 				StyleConstants.setComponent(style, lbUserName);
 				document.insertString(document.getLength(), "\n", style);
 				
-				// ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+				// ÀÔ·ÂÇÑ ¹®ÀÚ Ãâ·Â
 				taChatText = new JTextArea();
-				taChatText.setLineWrap(true);		// ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
-				taChatText.append(msg);				// ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+				taChatText.setLineWrap(true);		// ÀÚµ¿ °³Çà Ã³¸®
+				taChatText.append(msg);				// ÀÔ·ÂÇÑ ¹®ÀÚ¸¦ Ã¤ÆÃ ³»¿ª¿¡ Ãâ·Â
 				taChatText.setFont(new Font(null, Font.PLAIN, 12));
 				taChatText.setForeground(new Color(255, 255, 140));
-				taChatText.setEditable(false);		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
-				taChatText.setOpaque(false);		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				taChatText.setEditable(false);		// ¼öÁ¤ ºÒ°¡
+				taChatText.setOpaque(false);		// ¹è°æ Åõ¸í
 				
 				StyleConstants.setComponent(style, taChatText);
 				document.insertString(document.getLength(), "\n", style);
 				
-				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				// ¼­¹ö Àü¼Û
 				WriterClass wtcls = new WriterClass(msg);
 				if(scls.gameState==0){
 					wtcls.serverSendMsgHorse();
@@ -301,41 +301,41 @@ public class Chatting extends JFrame implements ActionListener, KeyListener, Mou
 				ex.printStackTrace();
 			}
 			
-			// ï¿½âº» ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­: Ä¿ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½Ô·ï¿½ Ä­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
+			// ±âº» ¼ÂÆÃ ÃÊ±âÈ­: Ä¿¼­ À§Ä¡¸¦ Ã¤ÆÃ ÀÔ·Â Ä­À¸·Î ÁöÁ¤, Ã¤ÆÃ ³»¿ªÀÇ ½ºÅ©·ÑÀ» °¡Àå ¾Æ·¡·Î ÀÌµ¿
 			settingInit();
 		}
 	}
 	
 	
-	// ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½
+	// ÀÚ½ÅÀÇ ÀÌ¸ðÆ¼ÄÜ Ãâ·Â
 	public void sendEmo(ImageIcon emoGif) {
 		scls = SingletonClass.getInstance();	
 		try {
-			// ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½  ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â°ï¿½ ï¿½ï¿½ï¿½ï¿½
-			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¶ï¿½ï¿½ï¿½
+			// ÀÛ¼ºÀÚ Ãâ·Â  ¡Ø ÀÚ½ÅÀÇ ¹®ÀÚ Ãâ·Â°ú µ¿ÀÏ
+			// ¼ºº°¿¡ µû¶ó Ä³¸¯ÅÍ ¾ó±¼ÀÌ ´Þ¶óÁü
 			Icon iface = null;
-			if (scls.mdto.getSex().equals("ï¿½ï¿½ï¿½ï¿½")) {
+			if (scls.mdto.getSex().equals("³²ÀÚ")) {
 				iface = new ImageIcon("images/face_man.png");
 			}
-			else if(scls.mdto.getSex().equals("ï¿½ï¿½ï¿½ï¿½")) {
+			else if(scls.mdto.getSex().equals("¿©ÀÚ")) {
 				iface = new ImageIcon("images/face_woman.png");
 			}
 			
 			lbUserName = new JLabel(scls.mdto.getNickname() + "(" + scls.mdto.getId() + "):", iface, JLabel.LEFT);
 			lbUserName.setFont(new Font(null, Font.BOLD, 11));
 			lbUserName.setForeground(new Color(200, 200, 200));
-			lbUserName.setPreferredSize(new Dimension(0, 30));		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			lbUserName.setPreferredSize(new Dimension(0, 30));		// ¼¼·Î °£°Ý
 			StyleConstants.setComponent(style, lbUserName);
 			
 			document.insertString(document.getLength(), "\n", style);
 			
-			// ï¿½Ì¸ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½
+			// ÀÌ¸ðÆ¼ÄÜ Ãâ·Â
 			lbImg = new JLabel(emoGif);
 			StyleConstants.setComponent(style, lbImg);
 			
 			document.insertString(document.getLength(), "\n", style);
 			
-			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			// ¼­¹ö Àü¼Û
 			WriterClass wtcls = new WriterClass(emoGif.getDescription());
 			if(scls.gameState==0){
 				wtcls.serverSendEmoHorse();
@@ -351,40 +351,40 @@ public class Chatting extends JFrame implements ActionListener, KeyListener, Mou
 		
 		scls.idao.refreshEmoList();
 		
-		// ï¿½âº» ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­: Ä¿ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½Ô·ï¿½ Ä­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
+		// ±âº» ¼ÂÆÃ ÃÊ±âÈ­: Ä¿¼­ À§Ä¡¸¦ Ã¤ÆÃ ÀÔ·Â Ä­À¸·Î ÁöÁ¤, Ã¤ÆÃ ³»¿ªÀÇ ½ºÅ©·ÑÀ» °¡Àå ¾Æ·¡·Î ÀÌµ¿
 		settingInit();
 	}
 	
 	
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	// ¼­¹ö¿¡¼­ ¹ÞÀº ¹®ÀÚ Ãâ·Â
 	public void printServerMsg(memberDTO mdto, String msg) {
 		try {
-			// ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
-			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¶ï¿½ï¿½ï¿½
+			// ÀÛ¼ºÀÚ Ãâ·Â
+			// ¼ºº°¿¡ µû¶ó Ä³¸¯ÅÍ ¾ó±¼ÀÌ ´Þ¶óÁü
 			Icon iface = null;
-			if (mdto.getSex().equals("ï¿½ï¿½ï¿½ï¿½")) {
+			if (mdto.getSex().equals("³²ÀÚ")) {
 				iface = new ImageIcon("images/face_man.png");
 			}
-			else if(mdto.getSex().equals("ï¿½ï¿½ï¿½ï¿½")) {
+			else if(mdto.getSex().equals("¿©ÀÚ")) {
 				iface = new ImageIcon("images/face_woman.png");
 			}
 			
 			lbUserName = new JLabel(mdto.getNickname() + "(" + mdto.getId() + "):", iface, JLabel.LEFT);
-			lbUserName.setFont(new Font(null, Font.PLAIN, 11));		// Font(ï¿½Û²ï¿½(null = ï¿½âº»), È¿ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½)
-			lbUserName.setForeground(new Color(150, 150, 150));		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(R, G, B)
-			lbUserName.setPreferredSize(new Dimension(0, 30));		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			lbUserName.setFont(new Font(null, Font.PLAIN, 11));		// Font(±Û²Ã(null = ±âº»), È¿°ú, ±ÛÀÚ Å©±â)
+			lbUserName.setForeground(new Color(150, 150, 150));		// ±ÛÀÚ »ö»ó(R, G, B)
+			lbUserName.setPreferredSize(new Dimension(0, 30));		// ¼¼·Î °£°Ý
 			StyleConstants.setComponent(style, lbUserName);
 			
 			document.insertString(document.getLength(), "\n", style);
 			
-			// ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+			// ÀÔ·ÂÇÑ ¹®ÀÚ Ãâ·Â
 			taChatText = new JTextArea();
-			taChatText.setLineWrap(true);		// ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
-			taChatText.append(msg);				// ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+			taChatText.setLineWrap(true);		// ÀÚµ¿ °³Çà Ã³¸®
+			taChatText.append(msg);				// ÀÔ·ÂÇÑ ¹®ÀÚ¸¦ Ã¤ÆÃ ³»¿ª¿¡ Ãâ·Â
 			taChatText.setFont(new Font(null, Font.PLAIN, 12));
 			taChatText.setForeground(new Color(220, 220, 220));
-			taChatText.setEditable(false);		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
-			taChatText.setOpaque(false);		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			taChatText.setEditable(false);		// ¼öÁ¤ ºÒ°¡
+			taChatText.setOpaque(false);		// ¹è°æ Åõ¸í
 			StyleConstants.setComponent(style, taChatText);
 			
 			document.insertString(document.getLength(), "\n", style);
@@ -394,34 +394,34 @@ public class Chatting extends JFrame implements ActionListener, KeyListener, Mou
 			ex.printStackTrace();
 		}
 		
-		pnText.setCaretPosition(document.getLength());		// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
+		pnText.setCaretPosition(document.getLength());		// Ã¤ÆÃ ³»¿ªÀÇ ½ºÅ©·ÑÀ» °¡Àå ¾Æ·¡·Î ÀÌµ¿
 	}
 	
 	
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½
+	// ¼­¹ö¿¡¼­ ¹ÞÀº ÀÌ¸ðÆ¼ÄÜ Ãâ·Â
 	public void printServerEmo(memberDTO mdto, String EmoName) {
 		scls = SingletonClass.getInstance();
 		
 		try {
-			// ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
-			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¶ï¿½ï¿½ï¿½
+			// ÀÛ¼ºÀÚ Ãâ·Â
+			// ¼ºº°¿¡ µû¶ó Ä³¸¯ÅÍ ¾ó±¼ÀÌ ´Þ¶óÁü
 			Icon iface = null;
-			if (mdto.getSex().equals("ï¿½ï¿½ï¿½ï¿½")) {
+			if (mdto.getSex().equals("³²ÀÚ")) {
 				iface = new ImageIcon("images/face_man.png");
 			}
-			else if(mdto.getSex().equals("ï¿½ï¿½ï¿½ï¿½")) {
+			else if(mdto.getSex().equals("¿©ÀÚ")) {
 				iface = new ImageIcon("images/face_woman.png");
 			}
 			
 			lbUserName = new JLabel(mdto.getNickname() + "(" + mdto.getId() + "):", iface, JLabel.LEFT);
-			lbUserName.setFont(new Font(null, Font.PLAIN, 11));		// Font(ï¿½Û²ï¿½(null = ï¿½âº»), È¿ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½)
-			lbUserName.setForeground(new Color(150, 150, 150));		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(R, G, B)
-			lbUserName.setPreferredSize(new Dimension(0, 30));		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			lbUserName.setFont(new Font(null, Font.PLAIN, 11));		// Font(±Û²Ã(null = ±âº»), È¿°ú, ±ÛÀÚ Å©±â)
+			lbUserName.setForeground(new Color(150, 150, 150));		// ±ÛÀÚ »ö»ó(R, G, B)
+			lbUserName.setPreferredSize(new Dimension(0, 30));		// ¼¼·Î °£°Ý
 			StyleConstants.setComponent(style, lbUserName);
 			
 			document.insertString(document.getLength(), "\n", style);
 			
-			// ï¿½Ì¸ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½
+			// ÀÌ¸ðÆ¼ÄÜ Ãâ·Â
 			ImageIcon emoGif = new ImageIcon(EmoName);
 			emoGif.getImage().flush();
 			lbImg = new JLabel(emoGif);
@@ -435,60 +435,60 @@ public class Chatting extends JFrame implements ActionListener, KeyListener, Mou
 			ex.printStackTrace();
 		}
 		
-		pnText.setCaretPosition(document.getLength());		// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
+		pnText.setCaretPosition(document.getLength());		// Ã¤ÆÃ ³»¿ªÀÇ ½ºÅ©·ÑÀ» °¡Àå ¾Æ·¡·Î ÀÌµ¿
 	}
 	
-	// ï¿½ï¿½ï¿½ï¿½ï¿½Î¿ï¿½
+	// Á¢¼ÓÀÎ¿ø
 	public void setlbconnectuser(int i){
-		lbconnectuser.setText("ï¿½ï¿½ï¿½ï¿½ : " + i + "ï¿½ï¿½");
+		lbconnectuser.setText("Á¢¼Ó : " + i + "¸í");
 	}
 	
 	
 	
-	////////// ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® //////////
-	// ï¿½ï¿½Æ° ï¿½×¼ï¿½ ï¿½Ìºï¿½Æ®
+	////////// ¹ÝÀÀ ÀÌº¥Æ® //////////
+	// ¹öÆ° ¾×¼Ç ÀÌº¥Æ®
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		scls = SingletonClass.getInstance();
 		
 		Object objAction = e.getSource();
 		
-		// 'ï¿½Ì¸ï¿½Æ¼ï¿½ï¿½'ï¿½ï¿½Æ° Å¬ï¿½ï¿½
+		// 'ÀÌ¸ðÆ¼ÄÜ'¹öÆ° Å¬¸¯
 		if (objAction.equals(btnEmoticon)) {
 			new Emoticon();
 		}
 		
-		// 'ï¿½ï¿½ï¿½ï¿½ï¿½'ï¿½ï¿½Æ° Å¬ï¿½ï¿½
+		// 'Áö¿ì±â'¹öÆ° Å¬¸¯
 		if (objAction.equals(btnChatClear)) {
-			pnText.setText("");			// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½Ê±ï¿½È­
+			pnText.setText("");			// Ã¤ÆÃ ³»¿ª °ø¹é »óÅÂ·Î ÃÊ±âÈ­
 			
-			// ï¿½âº» ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­: Ä¿ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½Ô·ï¿½ Ä­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
+			// ±âº» ¼ÂÆÃ ÃÊ±âÈ­: Ä¿¼­ À§Ä¡¸¦ Ã¤ÆÃ ÀÔ·Â Ä­À¸·Î ÁöÁ¤, Ã¤ÆÃ ³»¿ªÀÇ ½ºÅ©·ÑÀ» °¡Àå ¾Æ·¡·Î ÀÌµ¿
 			settingInit();
 		}
 		
-		// 'ï¿½ï¿½ï¿½ï¿½'ï¿½ï¿½Æ° Å¬ï¿½ï¿½
+		// 'Àü¼Û'¹öÆ° Å¬¸¯
 		if (objAction.equals(btnMsgSend)) {
-			printMsg();					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-			taInputMsg.setText("");		// ï¿½Ô·ï¿½Ä­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½Ê±ï¿½È­
-			settingInit();				// ï¿½âº» ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
+			printMsg();					// ¹®ÀÚ Àü¼Û
+			taInputMsg.setText("");		// ÀÔ·ÂÄ­ °ø¹é »óÅÂ·Î ÃÊ±âÈ­
+			settingInit();				// ±âº» ¼ÂÆÃ ÃÊ±âÈ­
 		}
 	}
 
-	// Å°ï¿½ï¿½ï¿½ï¿½ Å° ï¿½Ìºï¿½Æ®
+	// Å°º¸µå Å° ÀÌº¥Æ®
 	@Override
 	public void keyPressed(KeyEvent e) {
 		Object objKey = e.getKeyCode();
 		
-		// 'Enter'Å° ï¿½Ô·ï¿½
-		// Ã¤ï¿½ï¿½ ï¿½Ô·ï¿½ Ä­ï¿½ï¿½ ï¿½Ô·Âµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		// 'Enter'Å° ÀÔ·Â
+		// Ã¤ÆÃ ÀÔ·Â Ä­¿¡ ÀÔ·ÂµÈ ³»¿ëÀ» Ã¤ÆÃ Ã¢¿¡ Àü¼Û
 		if (objKey.equals(KeyEvent.VK_ENTER)) {
-			printMsg();					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-			taInputMsg.setText("");		// ï¿½Ô·ï¿½Ä­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½Ê±ï¿½È­
-			e.consume();				// ï¿½ï¿½ ï¿½Ì»ï¿½ 'Key'ï¿½Ìºï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ 'Enter' ï¿½âº» ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+			printMsg();					// ¹®ÀÚ Àü¼Û
+			taInputMsg.setText("");		// ÀÔ·ÂÄ­ °ø¹é »óÅÂ·Î ÃÊ±âÈ­
+			e.consume();				// ´õ ÀÌ»ó 'Key'ÀÌº¥Æ®¸¦ ¹ÞÁö ¾ÊÀ½  ¡Ø 'Enter' ±âº» ±â´ÉÀÌ °³ÇàÀÌ±â ¶§¹®¿¡ Àá±Ý
 		}
 	}
 	
-	// ï¿½ï¿½ï¿½ì½º ï¿½Ìºï¿½Æ®
+	// ¸¶¿ì½º ÀÌº¥Æ®
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		btnMsgSend.setBackground(new Color(255, 230, 65));;
@@ -500,7 +500,7 @@ public class Chatting extends JFrame implements ActionListener, KeyListener, Mou
 	}
 	
 
-	///// ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½  ï¿½ï¿½ KeyListener, MouseListener ï¿½âº» ï¿½ï¿½ï¿½ï¿½
+	///// »ç¿ë ¾È ÇÔ  ¡Ø KeyListener, MouseListener ±âº» ±¸¼º
 	@Override
 	public void keyTyped(KeyEvent e) {
 	}

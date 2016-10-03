@@ -118,7 +118,7 @@ public class IDSearchWindow extends Frame implements ActionListener, WindowListe
 		
 		setBounds(700, 200, 400, 300);
 		setVisible(true);
-		setResizable(false);
+//		setResizable(false);
 		
 		add(pan);
 		addWindowListener(this);
